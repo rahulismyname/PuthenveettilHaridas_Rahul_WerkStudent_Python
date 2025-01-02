@@ -56,27 +56,6 @@ The Data Extraction Tool is a simple application that extracts specific values f
 
 ---
 
-## Example Input and Output
-
-### Input
-- **PDF Files**: `sample_invoice_1.pdf`, `sample_invoice_2.pdf`.
-
-### Output
-- **Extracted Data (Sheet 1 in Excel)**:
-  | File Name            | Date           | Value        |
-  |----------------------|----------------|--------------|
-  | sample_invoice_1.pdf | 01/03/2024     | 453.53       |
-  | sample_invoice_2.pdf | 26/11/2016     | 950          |
-
-- **Pivot Table (Sheet 2 in Excel)**:
-  | Date           | sample_invoice_1.pdf  | sample_invoice_2.pdf  | Total     |
-  |----------------|-----------------------|-----------------------|-----------|
-  | 01/03/2024     | 45353                 | 0                     | 453.53    |
-  | 26/11/2016     | 0                     | 950                   | 950       |
-  | Total          | 45353                 | 950                   | 1403.53   |
-
----
-
 ## Troubleshooting
 
 1. **No Output Generated**:
