@@ -7,7 +7,7 @@ The Data Extraction Tool is a simple application that extracts specific values f
 ## Features
 
 1. **Data Extraction**:
-   - Extracts values like "Gross Amount incl. VAT" or "Total" from invoice PDFs.
+   - Extracts values like "Gross Amount incl. VAT" or "Total" from invoice PDFs without considering the currency. (Since conversion of currency requires API)
    - Automatically detects and extracts dates from the invoices.
 
 2. **Excel File Creation**:
@@ -31,7 +31,7 @@ The Data Extraction Tool is a simple application that extracts specific values f
 
 ### 2. Steps to Run
 
-#### Using the Executable File
+#### Option 1: Using the Executable File
 1. Place your invoice PDF files in the same folder as the `DataExtractionTool.exe`.
 2. Double-click on the `DataExtractionTool.exe` to run the application.
 3. The tool will automatically:
@@ -39,6 +39,18 @@ The Data Extraction Tool is a simple application that extracts specific values f
    - Generate `output.xlsx` and `output.csv` in the same folder.
 4. Open the generated files to view the extracted data and analysis.
 
+#### Option 2: Running the Python Script
+1. Ensure Python is installed on your system.
+2. Install the required libraries using:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Place your invoice PDF files in the same folder as the script.
+4. Run the script:
+   ```bash
+   python data_extraction_tool.py
+   ```
+5. The tool will generate `output.xlsx` and `output.csv` in the same folder.
 
 ---
 
@@ -53,6 +65,27 @@ The Data Extraction Tool is a simple application that extracts specific values f
 
 2. **output.csv**:
    - Contains the same data as Sheet 1 in the Excel file, but formatted as a CSV with semicolon (`;`) separators.
+
+---
+
+## Example Input and Output
+
+### Input
+- **PDF Files**: `sample_invoice_1.pdf`, `sample_invoice_2.pdf`.
+
+### Output
+- **Extracted Data (Sheet 1 in Excel)**:
+  | File Name            | Date           | Value        |
+  |----------------------|----------------|--------------|
+  | sample_invoice_1.pdf | 01/03/2024     | 453.53       |
+  | sample_invoice_2.pdf | 26/11/2016     | 950          |
+
+- **Pivot Table (Sheet 2 in Excel)**:
+  | Date           | sample_invoice_1.pdf  | sample_invoice_2.pdf  | Total     |
+  |----------------|-----------------------|-----------------------|-----------|
+  | 01/03/2024     | 45353                 | 0                     | 453.53    |
+  | 26/11/2016     | 0                     | 950                   | 950       |
+  | Total          | 45353                 | 950                   | 1403.53   |
 
 ---
 
